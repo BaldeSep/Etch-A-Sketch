@@ -43,5 +43,16 @@ body {
 }
 
 #grid-wrapper {
+  $grid-number: 4;
+  margin: 25px 0px;
+  height: 700px;
   display: grid;
+  grid-template-columns: repeat($grid-number, 1fr);
+  grid-template-rows: repeat($grid-number, 1fr);
+  div {
+    background-color: $grid-square-color;
+    &:hover {
+      border: 1px solid white;
+    }
+  }
 }

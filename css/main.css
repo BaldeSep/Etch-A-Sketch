@@ -45,7 +45,21 @@ body {
 }
 
 #grid-wrapper {
+  margin: 25px 0px;
+  height: 700px;
   display: -ms-grid;
   display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: (1fr)[4];
+      grid-template-rows: repeat(4, 1fr);
+}
+
+#grid-wrapper div {
+  background-color: #05204a;
+}
+
+#grid-wrapper div:hover {
+  border: 1px solid white;
 }
 /*# sourceMappingURL=main.css.map */
