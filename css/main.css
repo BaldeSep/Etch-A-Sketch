@@ -83,6 +83,7 @@ body {
   font-weight: bold;
   font-size: 1rem;
   width: 100px;
+  cursor: pointer;
 }
 
 #change-size-modal div button:nth-child(1) {
@@ -103,6 +104,105 @@ body {
 }
 
 #change-size-modal div button:nth-child(2):hover {
+  background-color: #67d556;
+  color: #fff;
+}
+
+#change-color-modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#change-color-modal h2 {
+  font-size: 1.4rem;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+#change-color-modal .color-palette-wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  margin-bottom: 10px;
+}
+
+#change-color-modal .color-palette-wrapper .color {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin: 0px 5px;
+  border-radius: 50%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+#change-color-modal .color-palette-wrapper .color:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+#change-color-modal .color-palette-wrapper .color[data-color="red"] {
+  background-color: #cc0000;
+}
+
+#change-color-modal .color-palette-wrapper .color[data-color="blue"] {
+  background-color: #0000cc;
+}
+
+#change-color-modal .color-palette-wrapper .color[data-color="green"] {
+  background-color: #004d00;
+}
+
+#change-color-modal .color-palette-wrapper .color[data-color="yellow"] {
+  background-color: #cccc00;
+}
+
+#change-color-modal #custom-color {
+  margin: 10px;
+}
+
+#change-color-modal div.btn-wrapper button {
+  padding: 10px;
+  margin: 0px 5px;
+  border: 1px solid black;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 1rem;
+  width: 100px;
+  cursor: pointer;
+}
+
+#change-color-modal div.btn-wrapper button:nth-child(1) {
+  background-color: #ef6f6c;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#change-color-modal div.btn-wrapper button:nth-child(1):hover {
+  background-color: #e72b27;
+  color: #fff;
+}
+
+#change-color-modal div.btn-wrapper button:nth-child(2) {
+  background-color: #9ee493;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#change-color-modal div.btn-wrapper button:nth-child(2):hover {
   background-color: #67d556;
   color: #fff;
 }
@@ -145,10 +245,10 @@ body {
   height: 700px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
-  -ms-grid-rows: (1fr)[4];
-      grid-template-rows: repeat(4, 1fr);
+  -ms-grid-columns: (1fr)[16];
+      grid-template-columns: repeat(16, 1fr);
+  -ms-grid-rows: (1fr)[16];
+      grid-template-rows: repeat(16, 1fr);
 }
 
 #grid-wrapper div {

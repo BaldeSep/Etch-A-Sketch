@@ -74,6 +74,82 @@ body {
       font-weight: bold;
       font-size: 1rem;
       width: 100px;
+      cursor: pointer;
+      &:nth-child(1) {
+        background-color: $modal-button-cancel;
+        transition: 0.5s;
+        &:hover {
+          background-color: darken($modal-button-cancel, 15);
+          color: #fff;
+        }
+      }
+      &:nth-child(2) {
+        background-color: $modal-button-ok;
+        transition: 0.5s;
+        &:hover {
+          background-color: darken($modal-button-ok, 15);
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+// Change color modal
+#change-color-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h2 {
+    font-size: 1.4rem;
+    font-weight: normal;
+    margin-bottom: 10px;
+  }
+  .color-palette-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 10px;
+    .color {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      margin: 0px 5px;
+      border-radius: 50%;
+      transition: 0.3s;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.2);
+      }
+      &[data-color="red"] {
+        background-color: darken(red, 10);
+      }
+      &[data-color="blue"] {
+        background-color: darken(blue, 10);
+      }
+      &[data-color="green"] {
+        background-color: darken(green, 10);
+      }
+      &[data-color="yellow"] {
+        background-color: darken(yellow, 10);
+      }
+    }
+  }
+
+  #custom-color {
+    margin: 10px;
+  }
+
+  div.btn-wrapper {
+    button {
+      padding: 10px;
+      margin: 0px 5px;
+      border: 1px solid black;
+      border-radius: 3px;
+      font-weight: bold;
+      font-size: 1rem;
+      width: 100px;
+      cursor: pointer;
       &:nth-child(1) {
         background-color: $modal-button-cancel;
         transition: 0.5s;
@@ -121,7 +197,7 @@ body {
 }
 
 #grid-wrapper {
-  $grid-number: 4;
+  $grid-number: 16;
   margin: 25px 0px;
   height: 700px;
   display: grid;
