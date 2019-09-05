@@ -27,6 +27,10 @@ gridSizeModalOkButton.addEventListener("click", e => {
   }
 });
 
+gridSizeModalCancelButton.addEventListener("click", e => {
+  gridSizeModal.style.display = "none";
+});
+
 const newGridButton = document.getElementById("set-grid-size");
 newGridButton.addEventListener("click", e => {
   gridSizeModal.style.display = gridSizeModal.dataset.display;
@@ -37,9 +41,39 @@ eraserButton.addEventListener("click", e => {
   setState("Erase");
 });
 
+let colorModalTempColor;
+const colorModal = document.querySelector(
+  ".modal[data-purpose='change-color']"
+);
+
 const colorButton = document.getElementById("select-pen-color");
+const colorPalletList = colorModal.children[0].children[1].children;
+for (let i = 0; i < colorPalletList.length; i++) {
+  colorPalletList[i].addEventListener("click", e => {
+    colorModalTempColor = colorPalletList[i].dataset.color;
+  });
+}
+
+const cancelColorModalButton = colorModal.children[0].children[3].children[0];
+const okColorModalButton = colorModal.children[0].children[3].children[1];
+
 colorButton.addEventListener("click", e => {
   setState("Color");
+  colorModal.style.display = colorModal.dataset.display;
+});
+
+okColorModalButton.addEventListener("click", e => {
+  setColor(colorModalTempColor);
+  colorModal.style.display = "none";
+});
+
+cancelColorModalButton.addEventListener("click", e => {
+  colorModal.style.display = "none";
+});
+
+const customColorChooser = document.getElementById("custom-color");
+customColorChooser.addEventListener("change", e => {
+  colorModalTempColor = e.target.value;
 });
 
 const clearGridButton = document.getElementById("clear-grid");
@@ -63,6 +97,10 @@ function alterColor(e) {
 
 function setState(newState) {
   state = newState;
+}
+
+function setColor(newColor = "#fff") {
+  color = newColor;
 }
 
 function createNewGrid(newGridSize = DEFAULT_GRID_SIZE, reset = false) {
