@@ -12,7 +12,6 @@ body {
 }
 
 .modal {
-  display: none;
   position: fixed;
   z-index: 100;
   left: 0;
@@ -22,6 +21,14 @@ body {
   overflow: auto;
   background-color: black;
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal[data-purpose="grid-size"] {
+  display: none;
+}
+
+.modal[data-purpose="change-color"] {
+  display: none;
 }
 
 .modal-content {

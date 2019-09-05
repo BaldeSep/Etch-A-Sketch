@@ -12,10 +12,15 @@
   <body>
     <main>
       <!-- Modal for changing grid size -->
-      <div class="modal" data-display="block">
+      <div class="modal" data-purpose="grid-size" data-display="block">
         <div class="modal-content" id="change-size-modal">
           <h2>Enter the number of columns and rows</h2>
-          <input type="number" id="input-number-modal-size" placeholder="4" />
+          <input
+            type="number"
+            id="input-number-modal-size"
+            placeholder="4"
+            min="1"
+          />
           <div>
             <button class="btn-cancel">Cancel</button>
             <button class="btn-ok">Ok</button>
@@ -24,7 +29,7 @@
       </div>
 
       <!-- Modal for changing colors -->
-      <div class="modal" data-display="block">
+      <div class="modal" data-purpose="change-color" data-display="block">
         <div class="modal-content" id="change-color-modal">
           <h2>Select a Color</h2>
           <div class="color-palette-wrapper">
