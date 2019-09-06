@@ -76,6 +76,25 @@ customColorChooser.addEventListener("change", e => {
   colorModalTempColor = e.target.value;
 });
 
+// Random Color
+const randomColorButton = document.getElementById("select-random-pen-color");
+randomColorButton.addEventListener("click", e => {
+  setState("Random");
+});
+
+function getRandomInteger(min = 0, max = 1) {
+  return Math.floor(Math.random() * (max - min) + min, 0);
+}
+
+function getRandomColor() {
+  let red = getRandomInteger(0, 256);
+  let green = getRandomInteger(0, 256);
+  let blue = getRandomInteger(0, 256);
+  return `rgb(${red}, ${green}, ${blue})`;
+}
+
+// Clear Grid
+
 const clearGridButton = document.getElementById("clear-grid");
 clearGridButton.addEventListener("click", clearGrid);
 
@@ -86,12 +105,16 @@ function clearGrid(e) {
   }
 }
 
+// Will change color of square depending on the current state
 function alterColor(e) {
+  const currentSquare = this;
   if (state === "Color") {
-    this.style.backgroundColor = color;
+    currentSquare.style.backgroundColor = getColor();
   } else if (state === "Erase") {
-    this.style.backgroundColor = defaultSquareColor;
+    currentSquare.style.backgroundColor = defaultSquareColor;
   } else if (state === "Random") {
+    setColor(getRandomColor());
+    currentSquare.style.backgroundColor = getColor();
   }
 }
 
@@ -101,6 +124,10 @@ function setState(newState) {
 
 function setColor(newColor = "#fff") {
   color = newColor;
+}
+
+function getColor() {
+  return color;
 }
 
 function createNewGrid(newGridSize = DEFAULT_GRID_SIZE, reset = false) {
